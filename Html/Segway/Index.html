@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <!--etiquetas opcionales-->
     <meta name="description" content="Mi primera pagina web" />
-    <meta name="keywords" content="Html, Css, JavaScript, TypeScript, Angular" , "Viajes" , "Segway" , "USA" />
+    <meta name="keywords" content="Html, Css, JavaScript, TypeScript, Angular, Viajes , Segway ,USA" />
     <meta name="author" content="Enrique Martín de la Sierra" />
     <Title>My Trip Around the USA on a Segway</Title>
 
@@ -28,25 +28,34 @@
     <p>
         Well I made it 1200 miles already, and I passed
         through some interesting places on the way:
-        Walla Walla, WA
-        Magic City, ID
-        Bountiful, UT
-        Last Chance, CO
-        Truth or Consequences, NM
-        Why, AZ
     </p>
+        <ol> <!--esto es una lista ordenada <ol>, 
+         tambien esta la desordenada <ul>,
+         y se pueden formar con el atajo ul>li*5 
+         donde el numero es cada una de la lista-->
+            <li>Walla Walla, WA </li>
+            <li>Magic City, ID </li>
+            <li>Bountiful, UT </li>
+            <li>Last Chance, CO</li>
+            <li>Truth or Consequences, NM</li>
+            <li>Why, AZ</li>
+        </ol>
     <h2>
         July 14, 2012
     </h2>
     <p>
         I saw some Burma Shave style signs on the side of the
         road today:
-        Passing cars,
-        When you can't see,
-        May get you,
-        A glimpse,
-        Of eternity.
-
+    </p>
+    <blockquote> <!--este tipo de cita genera un texto tabulado,
+         es un elemento block-->
+        Passing cars,<br/>
+        When you can't see,<br/>
+        May get you,<br/>
+        A glimpse,<br/>
+        Of eternity.<br/>
+    </blockquote>
+    <p>
         I definitely won't be passing any cars.
     </p>
     <h2>June 2, 2012</h2>
@@ -56,9 +65,11 @@
         I wasn't able to bring a whole lot with me:
         cellphone, iPod, digital camera and a protein bar
 
-        Just the essentials. As
-        Lao Tzu would have said, A journey of a
-        thousand miles begins with one Segway.
+        Just the essentials. As Lao Tzu would have said,
+        <q> <!--esto es una cita, es un elemento InLine,
+             para citas mas largas se usa <blockquote>-->
+            A journey of a thousand miles begins with one Segway.
+        </q>
     </p>
 
 </body>
