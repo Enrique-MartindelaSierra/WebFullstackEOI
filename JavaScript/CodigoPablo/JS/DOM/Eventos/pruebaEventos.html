@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="la">
+<head>
+    <meta charset="utf-8">
+    <title>Ejercicio 11 - DOM básico</title>
+    <script>
+        window.onload = function() {
+			let titulo=document.getElementsByTagName("h1")[0];
+
+			//titulo.onclick=pulsarTitulo;
+			
+			titulo.addEventListener("click",pulsarTitulo);
+			titulo.addEventListener("click",pulsarTitulo2);
+			
+			
+		}
+
+
+		function pulsarTitulo(){
+			alert("Hola Pablo");
+		}
+		function pulsarTitulo2(){
+			alert("Adiós Pablo");
+		}		
+    </script>
+</head>
+<body>
+	<h1>FORMULARIO HECHO CON HTML</h1>
+	<form id="pepito" action="pagina2.html">
+		<label class="rojo" for="Nombre">Nombre:</label>
+		<input type="text" name="Nombre" id="Nombre">
+		<br>
+		<label class="rojo">
+		Direccion:<input type="text" name="Dirección">
+		</label><br>
+		<label>Telefono:<input type="text" name="Telefono">
+		</label><br>
+		<input type="submit" value="ENVIAR">
+	</form>
+	
+</body>
+</html>

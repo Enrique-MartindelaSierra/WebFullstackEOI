@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="utf-8">
+	<title>Ejercicio Eventos</title>
+	<link rel="stylesheet" href="ejercicio3.css">
+	<script>
+		/*
+			si pulsamos el titulo eliminar el ultimo parrafo
+			
+			1) Pide al usuario filas y columnas
+			2) Haz una tabla con esas filas y columnas usando DOM en el TABLE del HTML
+			Poniendo número empezando por 1. 
+			La tabla debe tener 2px solida y color verde. Y debe estar colapsada.
+			3) Si pulsas sobre un TD multiplica por 2 el valor de la celda
+			4) Si pasas el ratón por encima del TD que el borde del mismo se ponga
+			con rojo y de 10px de grosor
+			5) Si sale el ratón del TD vuelve a su borde normal
+		
+		*/
+
+
+		function pedirNumero1a10(texto) {
+
+			let numero;
+			do {
+				numero = prompt(texto);
+
+				if (isNaN(numero) || numero == "" || numero < 1 || numero > 10) {
+					alert("ERROR")
+				}
+			} while (isNaN(numero) || numero == "" || numero < 1 || numero > 10)
+			return +numero;
+		}
+/*
+		function tabla(min, max) {
+			document.write("<table>")
+			let contador = 1
+			for (let i = 1; i <= max; i++) {
+				document.write("<tr>");
+				for (let i = 1; i <= min; i++) {
+					document.write("<td>" + contador + "</td>");
+					contador++
+				}
+				document.write("</tr>");
+			}
+			document.write("</table>")
+		}
+*/
+
+		window.onload = function () {
+
+
+
+			alert("vamos a dibujar una tabla");
+			let filas = pedirNumero1a10("cuantas filas le damos?")
+			let columnas = pedirNumero1a10("y cuantas columnas le damos?")
+			tabla(filas, columnas);
+
+
+		}
+	</script>
+
+
+</head>
+
+<body>
+	<table>
+
+	</table>
+</body>
+
+</html>

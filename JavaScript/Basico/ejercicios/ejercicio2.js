@@ -48,12 +48,12 @@ function lista(min, max) {
 }
 
 function parrafo(min, max) {
-    document.write("<p>")
+    document.write("<div>")
     for (let i = 1; i <= max; i++) {
-        document.write("" + min + "x" + i + "=" + (min * i) + "<br>")
+        document.write("<p>" + min + "x" + i + "=" + (min * i) + "</p>")
 
     }
-    document.write("</p>")
+    document.write("</div>")
 }
 
 function tabla(min, max) {
@@ -76,24 +76,29 @@ function desplegable(min, max) {
 
 
 function eligeTablaListaParrafoDesplegable(num1, num2) {
-    let opcion = +prompt("Elige: 1)tabla 2)lista 3)parrafo 4)desplegable")
-    switch (opcion) {
-        case 1:
-            tabla(determinarMenor(num1, num2), determinarMayor(num1, num2));
-            break;
-        case 2:
-            lista(determinarMenor(num1, num2), determinarMayor(num1, num2));
-            break;
+    let opcion
+    do {
+    opcion = +prompt("Elige: 1)tabla 2)lista 3)parrafo 4)desplegable 5)Salir")
+        switch (opcion) {
+            case 1:
+                tabla(determinarMenor(num1, num2), determinarMayor(num1, num2));
+                break;
+            case 2:
+                lista(determinarMenor(num1, num2), determinarMayor(num1, num2));
+                break;
 
-        case 3:
-            parrafo(determinarMenor(num1, num2), determinarMayor(num1, num2));
-            break;
-        case 4:
-            desplegable(determinarMenor(num1, num2), determinarMayor(num1, num2));
-        default:
-            console.log("ERROR");
+            case 3:
+                parrafo(determinarMenor(num1, num2), determinarMayor(num1, num2));
+                break;
+            case 4:
+                desplegable(determinarMenor(num1, num2), determinarMayor(num1, num2));
+                break;
+            case 5:
+                break;
+            default:
+                alert("ERROR");
 
-    }
-
+        }
+    } while (opcion != 5);
 }
 eligeTablaListaParrafoDesplegable(pedirNumero1a10("dime un numero: "), pedirNumero1a10("dime otro numero: "));

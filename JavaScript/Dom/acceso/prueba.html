@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="description" content="Mi primera pagina web">
+    <meta name="keywords" content="Html, Css, JavaScript, TypeScript, Angular">
+    <meta name="author" content="Enrique Martín de la Sierra">
+    <Title>DOM</Title>
+
+</head>
+
+
+<body>
+    <h1>TITULO</h1>
+    <p id="p1">PARRAFO 1</p>
+    <p name="p2">PARRAFO 2</p>
+    <p class="parrafos">PARRAFO 3</p>
+    <p class="parrafos">PARRAFO 4</p>
+
+
+
+    <script>
+        let madre = document.documentElement;
+        console.log(madre.lang);
+        console.log(madre.nodeName);
+        madre.lang = "en";
+        let cabecera = document.head;
+        console.log(cabecera.nodeName);
+        let cuerpo = document.body;
+        console.log(cuerpo.nodeName);
+
+        let parrafo1 = document.getElementById("p1");
+        console.log(parrafo1.nodeName);
+        
+        let parrafosClass = document.getElementsByClassName("parrafos");
+        let parrafo3 = parrafosClass[0];
+        console.log(parrafo3.nodeName);
+        let parrafo4 = parrafosClass[1];
+        console.log(parrafo4.nodeName);
+        
+        let parrafosName = document.getElementsByName("p2");
+        let parrafo2 = parrafosName[0];
+        console.log(parrafo2.nodeName);
+        
+        let titulos = document.getElementsByTagName("h1");
+        let titulo1 = titulos[0];
+        console.log(titulo1.nodeName);
+        console.log(titulo1.innerHTML);
+
+    </script>
+</body>
+
+</html>

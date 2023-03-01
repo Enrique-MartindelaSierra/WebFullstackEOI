@@ -21,6 +21,8 @@
     <!-- ul>li*6 -->
     <!-- ol>li*6 -->
     <form>
+        <fieldset>
+        <legend>Datos personales</legend>
         <label for="nombre">
             Nombre: <input type="text" size="80" name="nombre" id="nombre" required>
         </label>
@@ -37,6 +39,7 @@
         <label>
             Edad: <input type="number" name="edad" min="0" max="130" value="25">
         </label>
+    </fieldset>
         <p>
             <label>sexo:</label>
             <label>
@@ -71,7 +74,8 @@
         </p>
 
         <p>
-
+<fieldset>
+    <legend>Botones</legend>
             <input type="submit" name="submit" value="ENVIAR">
             <input type="reset" name="reset" value="BORRAR">
             <input type="button" name="button1" value="BOTÓN 1">
@@ -82,9 +86,31 @@
                 <!--ellos han puesto el logo de la eoi que yo no tengo-->
                 <img src="images/drinks.gif" alt="boton imagen bebidas">
             </button>
+        </fieldset>
         </p>
 
+        <p>
+            <label>Opinión: <br>
+                <textarea name="opinion" id="opinion" cols="20" rows="5" placeholder="Aqui escribe el usuario"></textarea>
+            </label>
+        </p>
+        <p>
+            <label>País
+                <select name="pais" id="pais">
+                    <option value="">&nbsp;</option>
+                    <optgroup label="Europa">
+                        <option value="espanya">España</option>
+                        <option value="italia">Italia</option>
+                        <option value="francia">Francia</option>
+                    </optgroup>
+                    <optgroup label="Sudamerica">    
+                        <option value="argentina">Argentina</option>
+                </optgroup>
+                </select>
+            </label>
+        </p>
 
+    
     </form>
 </body>
 

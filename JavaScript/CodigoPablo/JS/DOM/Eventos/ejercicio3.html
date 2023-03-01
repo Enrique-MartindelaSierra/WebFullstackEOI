@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Ejercicio Eventos</title>
+	<script>
+/*
+	si pulsamos el titulo eliminar el ultimo parrafo
+	
+	1) Pide al usuario filas y columnas
+	2) Haz una tabla con esas filas y columnas usando DOM en el TABLE del HTML
+	Poniendo número empezando por 1. 
+	La tabla debe tener 2px solida y color verde. Y debe estar colapsada.
+	collapse
+	3) Si pulsas sobre un TD multiplica por 2 el valor de la celda (innerHTML)
+	4) Si pasas el ratón por encima del TD que el borde del mismo se ponga
+	con rojo y de 10px de grosor
+	5) Si sale el ratón del TD vuelve a su borde normal
+	
+	<table>
+	  for(let f=1;f<=filas;f++)
+		<tr>--> document.createElement("tr");
+			for(let c=0;c<columnas;c++)
+			<td>1</td> --> document.createElement("td");
+			<td>2</td>	   document.createTextNode(f);
+			<td>3</td>	   
+		</tr>
+		<tr>
+			<td colspan="2">128</td>
+			<td>6</td>
+		</tr>	
+	</table>
+
+*/	
+	function pedirCosas(texto){
+		let num; 
+		
+		do{
+			num=+prompt(texto);
+		}while(isNaN(num) || num<1);
+			
+		return num;
+	}
+	
+	function duplicar(){
+		this.innerHTML=this.innerHTML*2;
+	}
+	function cambiarBorde(nodo,modo){
+		if(modo==1)
+			nodo.style.border="10px solid red";
+		else 
+			nodo.style.border="2px solid green";
+	}
+	
+	
+	
+	window.onload=function(){
+		let tabla=document.querySelector("table");
+		tabla.style.border="2px solid green";
+		tabla.style.borderCollapse="collapse";
+		let filas=pedirCosas("Dime cuentas filas quieres"); 	
+		let columnas=pedirCosas("Dime cuantas columnas quieres"); 
+		let tr,td,texto;
+		let contador=1;
+		for(let f=0;f<filas;f++){
+			tr=document.createElement("tr");
+			for(let c=1;c<=columnas;c++){
+				td=document.createElement("td");
+				td.style.border="2px solid green";
+				//texto=document.createTextNode(f*columnas+c);
+				texto=document.createTextNode(contador);
+				contador++;
+				td.appendChild(texto);
+				//td.innerHTML=contador++;
+				
+				td.onclick=duplicar;
+				td.addEventListener("mouseover",function(){
+													cambiarBorde(this,1);});
+				td.onmouseout=function(){
+									cambiarBorde(this,2);
+								};
+				
+				tr.appendChild(td);
+			}
+			tabla.appendChild(tr);
+		}
+	}
+	</script>
+	
+	
+</head>
+<body>
+	<table>
+	
+	</table>
+</body>
+</html>
+
+

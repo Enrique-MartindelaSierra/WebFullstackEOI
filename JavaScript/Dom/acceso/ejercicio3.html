@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<meta http-equiv="content-type" content="text/html">
+	<meta name="author" content="Pablo Garramone">
+	<title>Ejercicio 3</title>
+</head>
+
+<body>
+	<div id="informacion">
+		<p name="parrafo1">Este es el primer párrafo del ejemplo, vamos a introducir
+			<strong id="str" class="neg">negrita</strong> y
+			<a href="pru.html">enlace</a>
+		</p>
+		<h2>ejemplo 2</h2>
+		<p id="p2">Este es el segundo párrafo</p>
+		<h1>ejemplo 3</h1>
+		<p> Este es el tercer párrafo</p>
+	</div>
+	<script>
+		let forma1 = document.getElementsByTagName("p")[0]
+		console.log(forma1.nodeName+" " +forma1.innerHTML)
+		let forma2 = document.querySelector("p")
+		console.log(forma2.nodeName+" " +forma2.innerHTML)
+		let forma3 = document.getElementById("informacion").children[0]
+		console.log(forma3.nodeName+" " +forma3.innerHTML)
+		let forma4 = document.body.children[0].children[0]
+		console.log(forma4.nodeName+" " +forma4.innerHTML)
+		let forma5 =document.querySelectorAll("p")[0]
+		console.log(forma5.nodeName+" " +forma5.innerHTML)
+		let forma6 = document.getElementsByTagName("h2")[0].previousElementSibling
+		console.log(forma6.nodeName+" " +forma6.innerHTML)
+		let forma7 = document.querySelector("a").parentElement
+		console.log(forma7.nodeName+" " +forma7.innerHTML)
+	</script>
+</body>
+
+</html>

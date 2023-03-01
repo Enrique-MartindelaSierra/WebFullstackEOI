@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<head>
+<meta http-equiv="content-type" content="text/html" />
+<meta name="author" content="isabel" />
+<title>Untitled 2</title>
+<script>
+//aplicamos función cuando se carga la página en el navegador.
+window.onload = function() {
+    //variable que toma el Id “información” esta función se encuentra más adelante.
+    let info=document.getElementById("informacion");
+    //número de títulos h1en todo el documento.
+    let mostrarh1=document.getElementsByTagName("h1");
+	info.innerHTML="Número de h1:"+mostrarh1.length;
+	let negritasPagina=document.getElementsByTagName("strong");
+	info.innerHTML+="<br>CANTIDAD NEGRITAS EN LA PÁGINA:"+negritasPagina.length;
+	let smallPagina=document.getElementsByTagName("small");
+	info.innerHTML+="<br>CANTIDAD SMALL EN LA PÁGINA:"+smallPagina.length;
+	
+	let p2=document.getElementsByTagName("p")[1];
+	let negritasP2=p2.getElementsByTagName("strong");
+	info.innerHTML+="<br>CANTIDAD NEGRITAS EN EL PÁRRAFO2:"+negritasP2.length;
+	
+	/*
+		CANTIDAD NEGRITAS EN LA PÁGINA:
+		CANTIDAD SMALL EN LA PÁGINA:
+		CANTIDAD NEGRITAS EN EL PÁRRAFO2:
+	
+	*/
+
+	/*
+	EQUIVALENCIAS ENTRE FUNCIONES DOM
+	
+	let div=document.getElementById("informacion");
+	let div=document.querySelector("#informacion");
+	
+	let arrayP=document.getElementsByTagName("p");
+	let arrayP=document.querySelectorAll("p");
+	
+	let arrayH2=document.getElementsByClassName("titulo2")[0];
+	let arrayH2=document.querySelectorAll(".titulo2")[0];
+	let h2=document.querySelector(".titulo2");
+
+	let parrafos=document.getElementsByTagName("p");
+	parrafos[0] parrafos[2]
+	
+	let parrafos=document.querySelectorAll("h1+p");
+*/
+}
+</script>
+</head>
+<body>
+    <div id="informacion" style= "border:thin solid silver; padding:.5em"></div>
+    <h1>Ejemplo1</h1>
+    <p>Este es el primer párrafo del ejemplo, vamos a introducir <strong>negrita</strong> y <em>cursiva</em></p>
+    <h2 class="titulo2">ejemplo 2</h2>
+    <p><small>Este <strong>es</strong> el segundo <strong>párrafo</strong> más pequeño</small> </p>
+    <h1>ejemplo 3</h1>
+    <p> Este es el tercer <strong>párrafo</strong> más grande</p>
+</body>
+</html>

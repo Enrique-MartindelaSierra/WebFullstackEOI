@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+		<title>Ejercicio Eventos con Imágenes</title>
+		<script>
+			function cambiarImagen(nodo,imagen){
+				nodo.src=imagen;
+			}
+			/*function cambiaPluto(){
+				this.src="pluto.jpeg";
+			}
+			function cambiaMickey(){
+				this.src="mickey.jpeg";
+			}*/
+			function saluda(){
+				alert("Hola Pablo");
+			}
+		
+			function cargar(){
+				let imagen=document.getElementsByTagName("img")[0];
+				imagen.onmouseover=function(){
+					cambiarImagen(this,"pluto.jpeg");
+				};
+				imagen.addEventListener("mouseout",function(){
+					cambiarImagen(this,"mickey.jpeg");
+				});
+				
+				let titulo=document.querySelector("h1");
+				titulo.onclick=saluda;
+			}
+
+			window.addEventListener("load",cargar);
+			//window.onload=cargar;
+
+		</script>
+	</head>
+	<body>
+		<h1>EJERCICIO IMÁGENES</h1>
+		<p><img src="mickey.jpeg" alt="mickey"></p>
+	</body>
+</html>

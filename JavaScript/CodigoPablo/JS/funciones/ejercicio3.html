@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 3</title>
+</head>
+<body>
+	<script>
+	/*
+		PABLOABABABAB AB  HOLA
+		
+		s1.replace(s2,s3);
+		
+		PHOLALOHOLAHOLAHOLAHOLA
+		
+		
+		hoja a aldre
+		
+		let s1="holalala";
+		let s2="la";
+		console.log(s1.indexOf(s2));
+		
+		1
+		
+		hojaldre	
+	*/
+	
+	let s1="holalalalala";
+	let s2="la";
+	let s3="x";
+	
+	console.log(s1.replaceAll(s2,s3));
+	let posicion;
+	let posEmpezar=0;
+	let veces=0;
+	let resultado=s1;
+	do{
+		posicion=s1.indexOf(s2,posEmpezar);
+		if(posicion!=-1){
+			posEmpezar=s2.length+posicion;
+			veces++;
+			resultado=resultado.replace(s2,s3);
+		}
+	}while(posicion>-1);
+	alert(veces);
+	alert(resultado);
+	//alert(s1.replaceAll(s2,s3));
+	
+	
+	
+	</script>
+</body>
+</html>
+

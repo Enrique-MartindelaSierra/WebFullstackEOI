@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="la">
+
+<head>
+	<meta charset="utf-8">
+	<title>Ejercicio 11 - DOM básico</title>
+	<script>
+		window.onload = function () {
+			/*Con el html de este formulario dado realiza las siguientes 
+			acciones con javaScript:
+			1- Que cambie el valor del atributo lang de la etiqueta HTML a "en".
+			2- Que imprima en un console.log el valor del action
+			3- Accede al primer elemento que tenga la clase "rojo" 
+			(debes hacerlo de 2 formas distintas,
+			usando la función DOM pertinende y querySelector) Y debes imprimir en
+			console.log el valor de la clase y cuantos elementos 
+			tienen ese valor de clase.
+			4- Finalmente cuantos label hay en el documento*/
+			document.documentElement.lang = "en";
+			console.log(document.getElementById("pepito").getAttribute("action"));
+
+			let forma1 = document.querySelector(".rojo");
+			let forma2 = document.getElementsByClassName("rojo");
+			console.log(forma1.className+" "+ forma1.innerHTML+" "+document.querySelectorAll(".rojo").length)
+			console.log(forma2[0].className+" "+ forma2[0].innerHTML+" "+forma2.length);
+		
+			console.log(document.getElementsByTagName("label").length);
+		}
+
+		function pulsarTitulo(){
+			alert('hola kike');
+		}
+
+
+
+	</script>
+</head>
+
+<body>
+	<h1 onclick="pulsarTitulo();">FORMULARIO HECHO CON HTML</h1>
+	<form id="pepito" action="pagina2.html">
+		<label class="rojo" for="Nombre">
+			Nombre:<input type="text" name="Nombre">
+		</label><br>
+		<label class="rojo">
+			Direccion:<input type="text" name="Dirección">
+		</label><br>
+		<label>Telefono:<input type="text" name="Telefono">
+		</label><br>
+		<input type="submit" value="ENVIAR">
+	</form>
+
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>ejercicio10</title>
+    <style>
+        table,
+        td,
+        div {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <title>ejercicio10</title>
+    <script>
+        let dias = new Array("lunes", "martes", "miercoles", "jueves", "viernes", "sabado", "domingo")
+        for (let dia in dias)
+            console.log(dia);
+        console.log("--STOP--")
+        for (let dia of dias)
+            console.log(dia);
+        console.log("--STOP--")
+        for (let i = 0; i < dias.length; i++)
+            console.log(dias[i]);
+        console.log("--STOP--")
+
+
+        dias.forEach(function (dia) {
+            console.log(dia);
+        })
+        console.log("--STOP--")
+        let numDias = dias.map(function (dia, i) {
+            return dia + (i + 1);
+        })
+        console.log(numDias);
+        console.log("--STOP--")
+
+        let diasConsonante = dias.filter(function (dia) {
+            if (dia.charAt(dia.length - 1) != "a" &&
+                dia.charAt(dia.length - 1) != "e" &&
+                dia.charAt(dia.length - 1) != "i" &&
+                dia.charAt(dia.length - 1) != "o" &&
+                dia.charAt(dia.length - 1) != "u"
+            )
+                return dia
+        })
+        console.log(diasConsonante)
+        console.log("--STOP--")
+
+
+
+    </script>
+
+
+</body>
+
+
+</html>

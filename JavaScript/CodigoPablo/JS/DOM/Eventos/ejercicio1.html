@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Ejercicio Eventos</title>
+	<script>
+/*
+	si pulsamos el titulo eliminar el ultimo parrafo
+	
+	1) Acceder al nodo titulo
+	2) Añadir evento click al titulo
+	3) Desarrollar funcion que elimine el ultimo parrafo
+		3.1) Acceder al ultimo parrafo
+		3.2) Eliminar ese ultimo parrafo usando removeChild
+	4) Si no hay párrafo dar un mensaje de error.
+
+*/	
+	function borrarParrafo(){
+		let parrafos=document.getElementsByTagName("p");
+		if(parrafos.length==0)
+			alert("Error! no hay párrafos a eliminar");
+		else{
+			let ultimoP=parrafos[parrafos.length-1];
+			ultimoP.parentNode.removeChild(ultimoP);
+		}
+	}
+	
+	function crearParrafo(){
+		let cantidad=document.getElementsByTagName("p").length;
+		let parrafo=document.createElement("p");
+		let texto=document.createTextNode("PARRAFO "+(cantidad+1));
+		parrafo.onclick=crearParrafo;
+		parrafo.appendChild(texto);
+		document.body.appendChild(parrafo);
+	}
+	
+	window.onload=function(){
+		let titulo=document.querySelector("h1");
+		titulo.onclick=borrarParrafo;
+		
+		let parrafos=document.getElementsByTagName("p");
+		for(let elemento of parrafos)
+			elemento.addEventListener("click",crearParrafo);
+	}
+	</script>
+	
+	
+</head>
+<body>
+	<h1>TITULO</h1>
+	<p>PARRAFO 1</p>
+	<p>PARRAFO 2</p>
+	<p>PARRAFO 3</p>
+	<p>PARRAFO 4</p>
+	
+</body>
+</html>
+
+

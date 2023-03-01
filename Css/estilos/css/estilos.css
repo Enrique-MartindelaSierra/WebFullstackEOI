@@ -1,0 +1,122 @@
+*{
+    color:black
+}
+
+
+h1 {
+    /* pongo el color en rojo*/
+    color : red;
+}
+
+h2 {
+    /* pongo el color en azul*/
+    color : blue;
+}
+
+/*
+p, li {
+    // pongo el color en verde
+    color : green;
+}
+*/
+
+p {
+    color : green;
+}
+
+
+a:link {
+    color : blue;
+}
+
+a:visited {
+    color : red;
+}
+
+a {
+    background-color: powderblue;
+    transition: background-color 1.5s;
+  }
+  
+a:hover {
+background-color: gold;
+text-decoration: none;
+}
+
+ul {
+    list-style-type: upper-roman;
+}
+
+ol {
+    list-style-type: none;
+}
+
+.numeros_romanos {
+    list-style-type: upper-roman;
+    font-size: 20px;
+}
+
+.abecedario {
+    list-style-type: lower-alpha
+}
+
+.elementos_azules{
+    color: blue;
+}
+
+.lista_none{
+    list-style-type: none;
+    color: red;
+}
+
+.lista_circle{
+    list-style-type: circle;
+    color: green;
+}
+
+.lista_square{
+    list-style-type: square;
+    color: gold;
+}
+´
+.lista_disc{
+    list-style-type: disc;
+    color: blue;
+}
+
+#unh2concreto{ /* id */
+    color: gold
+}
+
+ol li{
+    font-size: 48px;
+}
+
+ul li{
+    font-size: 24px;
+    color: green
+}
+
+#otroid{
+    color:salmon
+}
+
+.caja1 {
+    border: 5px solid red;
+    background-color: lightgray;
+    padding: 10px;
+    margin: 25px;
+    width: 250px;
+    height: 200px;
+    }
+    
+.caja2 {
+    border: 7px solid green;
+    background-color: gray;
+    padding: 5px;
+    margin: 0px;
+    width: 300px;
+    height: 200px;
+    color: white;
+    }
+        
