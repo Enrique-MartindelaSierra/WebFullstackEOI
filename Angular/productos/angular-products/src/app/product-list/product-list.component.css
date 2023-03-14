@@ -1,0 +1,18 @@
+td{
+  vertical-align: middle;
+}
+td:first-child img {
+  height: 40px;
+  }
+
+.estilo1{
+  color: white;
+  background-color: red;
+  font-size: 2em;
+}
+
+.estilo2{
+  color: yellow;
+  background-color: white;
+  font-size: 3em;
+}

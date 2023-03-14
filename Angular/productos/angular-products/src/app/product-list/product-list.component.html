@@ -1,0 +1,83 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header bg-primary text-white">My product's list</div>
+    <label>
+      Estilo 1<input
+        type="radio"
+        name="estilos"
+        value="estilo1"
+        (change)="cambiarEstilo()"
+      />
+      Estilo 2<input
+        type="radio"
+        name="estilos"
+        value="estilo2"
+        (change)="cambiarEstilo()"
+      />
+    </label>
+    <div class="card-block">
+      <form class="form">
+        <div class="form-group row">
+          <label class="col-form-label col-sm-2 text-sm-right" for="filterDesc"
+            >Filtro:</label>
+          <div class="col-sm-5">
+            <input
+              type="text"
+              [(ngModel)]="filterSearch"
+              class="form-control"
+              name="filterDesc"
+              id="filterDesc"
+              placeholder="Filter..."
+            />
+          </div>
+          <label class="col-form-label col-sm-5">
+            Filtrando por: {{ filterSearch }}</label>
+        </div>
+      </form>
+
+      <div class="table-responsive" *ngIf="productos && productos.length">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>
+                <button
+                  class="btn btn-sm"
+                  [ngClass]="{
+                    'btn-danger': showImage,
+                    'btn-primary': !showImage
+                  }"
+                  (click)="toggleImage()"
+                >
+                  {{ showImage ? "Ocultar" : "Mostrar" }} imagen
+                </button>
+              </th>
+              <th>{{ cabeceras.descripcion }}</th>
+              <th>{{ cabeceras.precio |currency:"EUR"}}</th>
+              <th>{{ cabeceras.avail |date:"dd/MM/y" }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let product of productos | productFilter:filterSearch">
+              <td>
+                <img
+                  [src]="product.imageUrl"
+                  *ngIf="showImage"
+                  [alt]="product.desc"
+                  [title]="product.desc"
+                  [style.heigth.px]="alturaImagen"
+                />
+              </td>
+              <td [ngStyle]="{ color: colorTs }">{{ product.desc }}</td>
+              <td
+                [ngClass]="{ estilo1: quieroEstilo1, estilo2: quieroEstilo2 }"
+              >
+                {{ product.price }}
+              </td>
+              <td>{{ product.avail }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
