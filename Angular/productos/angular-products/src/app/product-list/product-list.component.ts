@@ -1,44 +1,37 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IProduct } from '../interfaces/i-product';
-
+import { ProductosService } from "../servicios/productos.service";
 @Component({
   selector: 'product-list',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css'],
 })
-export class ProductListComponent {
+export class ProductListComponent implements OnInit {
+  constructor(private servicio: ProductosService) { }
+
+ngOnInit(){
+  this.servicio.getProducts().subscribe(
+    productosVienenServidor => this.productos = productosVienenServidor
+    );
+
+}
+
   titulo = 'LISTA DE PRODUCTOS';
   alturaImagen= 40
   colorTs= "red"
   quieroEstilo1=true
   quieroEstilo2=false
   showImage = true
-  filterSearch = 'sin filtro';
+  filterSearch = '';
 
   cabeceras = {
     descripcion: 'Producto',
     precio: 'Precio',
     avail: 'Disponible',
     image: "Imagen",
+    rating: "Puntuación",
   };
-  productos: IProduct[] = [
-    {
-      id: 1,
-      desc: 'SSD hard drive',
-      avail: new Date('2016-10-03'),
-      price: 75,
-      imageUrl: 'assets/ssd.jpg',
-      rating: 5,
-    },
-    {
-      id: 2,
-      desc: 'LGA1151 Motherboard',
-      avail: new Date('2016-09-15'),
-      price: 96.95,
-      imageUrl: 'assets/motherboard.jpg',
-      rating: 4,
-    },
-  ];
+  productos: IProduct[] = [];
 
 toggleImage(){
   this.showImage=!this.showImage;

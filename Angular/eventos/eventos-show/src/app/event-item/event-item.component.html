@@ -1,0 +1,18 @@
+<div class="card" [ngClass]="{'esFondoAzul':fondoAzul,'esFondoRojo':fondoRojo}">
+  <img
+    class="card-img-top"
+    [src]="event.image"
+    [alt]="event.title"
+    [title]="event.title"
+  />
+
+  <div class="card-body">
+    <h4 class="card-title">{{ event.title | titlecase }}</h4>
+    <p class="card-text">{{ event.description | titlecase }}</p>
+  </div>
+  <div class="card-footer text-muted">
+    {{ event.date | date : "dd/MM/y" }}
+    <span class="float-right">{{ event.price | currency : "EUR" }}</span>
+  </div>
+  <button class="btn btn-danger ml-3 float-right" (click)="deleteEvent()">Delete</button>
+</div>

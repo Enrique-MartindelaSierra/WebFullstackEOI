@@ -1,20 +1,42 @@
-<div class="row" >
-  <div class="col-6 mt-4" *ngFor="let event of evento">
-    <!-- Repetir esto por cada evento -->
-    <div class="card">
+<event-form (eventoNuevo)="anyadirEvento($event)"></event-form>
+
+<div class="row">
 
 
-        <img class="card-img-top" [src]="event.image" [alt]="event.title" [title]="event.title">
 
 
-      <div class="card-body">
-        <h4 class="card-title">{{event.title}}</h4>
-        <p class="card-text">{{event.description}}</p>
-      </div>
-      <div class="card-footer text-muted">
-        {{event.date}}
-        <span class="float-right">{{event.price}} €</span>
-      </div>
+  <nav class="navbar navbar-light bg-light justify-content-between mt-3">
+    <ul class="nav nav-pills">
+      <li class="nav-item">
+        <a class="nav-link" href="#" (click)="orderDate()">Orden por fecha</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" (click)="orderPrice()">Orden por precio</a>
+      </li>
+    </ul>
+    <form class="form-inline">
+      <input
+        class="form-control mr-sm-2"
+        type="text"
+        [(ngModel)]="search"
+        name="search"
+        placeholder="Search"
+        aria-label="Search"
+      />
+    </form>
+    <div class="row" *ngIf="evento && evento.length">
+      <select [(ngModel)]="desplegable" (change)="colorFondo()">
+        <option value="">--Elige Fondo--</option>
+        <option value="rojo">Fondo Rojo</option>
+        <option value="azul">Fondo Azul</option>
+      </select>
+
+  <div class="row">
+    <div class="col-6 mt-4" *ngFor="let event of evento | eventFilter : search">
+      <!-- Repetir esto por cada evento -->
+      <event-item
+        [event]="event" [fondoAzul]="fondoAzul" [fondoRojo]="fondoRojo"
+        (borrarEvento)="deleteEvento(event)"></event-item>
     </div>
   </div>
 </div>

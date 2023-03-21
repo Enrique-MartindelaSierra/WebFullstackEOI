@@ -1,0 +1,10 @@
+
+<div class="col-2 pl-2">
+  <img [src]="productoHijo.imageUrl" *ngIf="mostrarImagen" alt=""
+  [title]="productoHijo.desc | uppercase" [style.heigth.px]="alturaImagen">
+  </div>
+  <div class="col-4"[ngStyle]="{ color: colorTs }">{{ productoHijo.desc }}</div>
+  <div class="col" [ngClass]="{ estilo1: quieroEstilo1, estilo2: quieroEstilo2 }">{{ productoHijo.price | currency:'EUR':'symbol' }}</div>
+  <div class="col">{{ productoHijo.avail | date:'dd/MM/y' }}</div>
+  <div class="col"><star-rating [rating]="productoHijo.rating"
+    (cambiarRating)="changeRating($event)"></star-rating></div>
