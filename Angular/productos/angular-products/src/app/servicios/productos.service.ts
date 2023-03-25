@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable, throwError } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 import { IProduct } from '../interfaces/i-product';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 
 @Injectable({
@@ -10,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ProductosService {
 
-  private productURL = 'http://curso.i234.me:8080/productos';
+  private productURL = 'productos';
 
   constructor(private http: HttpClient) { }
 
@@ -19,7 +19,34 @@ export class ProductosService {
   .pipe(map(response => response.productos));
  }
 
-}
+ modificarEstrella(idProducto:number, cantidadEstrellas:number):Observable<boolean>{
+return this.http.put<{productos:boolean,ok:boolean, error?: string}>
+(this.productURL+"/rating/"+idProducto,{rating:cantidadEstrellas})
+.pipe(map(response =>{
+ console.log("Servidor productos:" +response.productos);
+ if(!response.ok){
+  throw response.error;
+ }
+ return true;
+}),
+catchError((respuesta:HttpErrorResponse)=>throwError(()=>
+new Error("Error al modificar la estrella. Respuesta server:" + respuesta.status+ ""+respuesta.message))
+))}
+
+
+
+
+getProduct(id:number): Observable<IProduct> {
+  return this.http.get<{producto: IProduct, ok: boolean, error?: string}>(this.productURL+"/"+id)
+  .pipe(map(response => response.producto));
+ }
+
+
+ }
+
+
+
+
 
 
 

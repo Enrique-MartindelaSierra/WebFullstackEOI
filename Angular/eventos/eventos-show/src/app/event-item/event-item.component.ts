@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { IEvent } from '../interfaces/i-event';
+import { EventosService } from '../servicios/eventos.service';
 
 @Component({
   selector: 'event-item',
@@ -14,7 +15,15 @@ export class EventItemComponent {
 
   @Output() borrarEvento=new EventEmitter<void>();
 
+  constructor(private servicio:EventosService){}
+
   deleteEvent(){
-    this.borrarEvento.emit()
+    this.servicio.deleteEventos(<number>this.event.id).subscribe({
+next:borrados=>{
+  console.log("Filas eliminadas"+borrados);
+  this.borrarEvento.emit()
+},
+error:error=> console.log(error)
+});
   }
 }

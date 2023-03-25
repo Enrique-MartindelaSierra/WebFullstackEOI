@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IProduct } from '../interfaces/i-product';
 import { ProductosService } from "../servicios/productos.service";
 @Component({
+    // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'product-list',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css'],

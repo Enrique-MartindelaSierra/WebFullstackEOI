@@ -68,6 +68,7 @@ export class EventsListComponent implements OnInit, OnChanges, DoCheck, OnDestro
   }
 
   anyadirEvento(eventoNuevo:IEvent){
+
     this.evento.push(eventoNuevo);
   }
 

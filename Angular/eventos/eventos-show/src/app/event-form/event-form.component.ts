@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IEvent } from '../interfaces/i-event';
+import { EventosService } from '../servicios/eventos.service';
 
 @Component({
   selector: 'event-form',
@@ -27,8 +28,13 @@ ngOnInit():void{
 
   @Output() eventoNuevo = new EventEmitter<IEvent>();
 
+  constructor(private servicio:EventosService){}
 
   addEvent() {
+
+    this.servicio.postEventos(this.newEvent).subscribe(
+      eventoAñadido=> this.newEvent = eventoAñadido
+    )
     this.eventoNuevo.emit(this.newEvent);
     this.inicializarEvento();
   }

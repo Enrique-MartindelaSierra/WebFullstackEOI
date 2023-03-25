@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { catchError, map, Observable, throwError } from 'rxjs';
 import { IEvent } from '../interfaces/i-event';
 
 @Injectable({
@@ -9,13 +9,32 @@ import { IEvent } from '../interfaces/i-event';
 export class EventosService {
 
 
-  private eventURL = 'http://curso.i234.me:8080/eventos';
+  private eventURL = 'eventos';
 
   constructor(private http: HttpClient) { }
 
   getEventos(): Observable<IEvent[]> {
   return this.http.get<{eventos: IEvent[], ok: boolean, error?: string}>(this.eventURL)
   .pipe(map(response => response.eventos))
+ }
+
+  postEventos(evento:IEvent): Observable<IEvent> {
+  return this.http.post<{evento: IEvent, ok: boolean, error?: string}>(this.eventURL,evento)
+  .pipe(
+    catchError(((resp: HttpErrorResponse) => throwError(
+      "Error insertando producto!. Código de servidor: "+resp.status+
+      "Mensaje: "+  resp.message)
+
+  )),
+ map(resp => {
+    if (!resp.ok) { throw resp.error; }
+    return resp.evento;
+    }));
+ }
+
+ deleteEventos(id:number): Observable<number>{
+  return this.http.delete<{evento:number}>(this.eventURL+"/"+ id)
+  .pipe(map(response => response.evento))
  }
 
     /* return [
