@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { IEvent } from '../interfaces/i-event';
 import { EventosService } from '../servicios/eventos.service';
 
@@ -10,33 +11,39 @@ import { EventosService } from '../servicios/eventos.service';
 export class EventFormComponent implements OnInit{
 
 newEvent!: IEvent;
+
+
 ngOnInit():void{
   this.inicializarEvento();
 }
   inicializarEvento(){
     this.newEvent ={
-      title: '',
-      image: '',
-      date: new Date('0000-00-00'),
-      description: '',
-      price: 0,
+      id: 0,
+      nombre: '',
+      imagen: undefined,
+      fecha: new Date('0000-00-00'),
+      descripcion: '',
+      precio: 0,
     }
 
   }
 
 
 
-  @Output() eventoNuevo = new EventEmitter<IEvent>();
+  //@Output() eventoNuevo = new EventEmitter<IEvent>();
 
-  constructor(private servicio:EventosService){}
+  constructor(private servicio:EventosService
+    ,private router: Router
+    ){}
 
   addEvent() {
 
     this.servicio.postEventos(this.newEvent).subscribe(
       eventoAñadido=> this.newEvent = eventoAñadido
     )
-    this.eventoNuevo.emit(this.newEvent);
+    //this.eventoNuevo.emit(this.newEvent);
     this.inicializarEvento();
+    this.router.navigate(["/eventos"]);
   }
 
   changeImage(fileInput: HTMLInputElement) {
@@ -46,7 +53,7 @@ ngOnInit():void{
     const reader: FileReader = new FileReader();
     reader.readAsDataURL(fileInput.files[0]);
     reader.addEventListener('loadend', (e) => {
-      this.newEvent.image = reader.result as string;
+      this.newEvent.imagen = reader.result as string;
     });
   }
 

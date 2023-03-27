@@ -11,9 +11,9 @@ export class EventFilterPipe implements PipeTransform {
 
     if(filtroDef) {
       return eventos.filter(e=>
-      e.title.toLocaleLowerCase()
+      e.nombre.toLocaleLowerCase()
         .includes(filtroDef.toLocaleLowerCase())||
-      e.description.toLocaleLowerCase()
+      e.descripcion.toLocaleLowerCase()
         .includes(filtroDef.toLocaleLowerCase())
       );
     }else{

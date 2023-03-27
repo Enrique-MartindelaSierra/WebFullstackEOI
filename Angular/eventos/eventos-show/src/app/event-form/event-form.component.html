@@ -1,21 +1,44 @@
-<form class="mt-4" (ngSubmit)="addEvent()">
-  <div class="form-group">
-    <label for="name">Nombre</label>
-    <input
-      type="text"
-      class="form-control"
-      name="title"
-      [(ngModel)]="newEvent.title"
-      placeholder="Enter name"
-    />
-  </div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Angular Events</a>
+  <ul class="navbar-nav mr-auto">
+  <li class="nav-item">
+  <a class="nav-link" [routerLink]="['/eventos']" >Eventos</a>
+  </li>
+  <li class="nav-item">
+  <a class="nav-link" [routerLink]="['/eventos/add']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Añadir evento</a>
+  </li>
+  </ul>
+  </nav>
+
+
+  <form class="mt-4" (ngSubmit)="addEvent()">
+    <!-- <div class="form-group">
+      <label for="name">ID</label>
+      <input
+        type="text"
+        class="form-control"
+        name="id"
+        [(ngModel)]="newEvent.id"
+        placeholder="intruoduce un id si quieres modificar"
+      />
+    </div> -->
+    <div class="form-group">
+      <label for="name">Nombre</label>
+      <input
+        type="text"
+        class="form-control"
+        name="title"
+        [(ngModel)]="newEvent.nombre"
+        placeholder="Enter name"
+      />
+    </div>
   <div class="form-group">
     <label for="date">Fecha</label>
-    <input type="date" class="form-control" name="date" [(ngModel)]="newEvent.date"/>
+    <input type="date" class="form-control" name="date" [(ngModel)]="newEvent.fecha"/>
   </div>
   <div class="form-group">
     <label for="description">Descripción</label>
-    <textarea class="form-control" name="description" [(ngModel)]="newEvent.description" rows="3"></textarea>
+    <textarea class="form-control" name="description" [(ngModel)]="newEvent.descripcion" rows="3"></textarea>
   </div>
   <div class="form-group">
     <label for="price">Precio</label>
@@ -26,7 +49,7 @@
       min="0.00"
       max="10000.00"
       step="0.01"
-      [(ngModel)]="newEvent.price"
+      [(ngModel)]="newEvent.precio"
     />
   </div>
   <div class="form-group">
@@ -35,11 +58,11 @@
       type="file"
       class="form-control"
       name="image"
-      [(ngModel)]="newEvent.image"
+      [(ngModel)]="newEvent.imagen"
       #fileImage
       (change)="changeImage(fileImage)"
     />
   </div>
-  <img [src]="newEvent.image" alt="" class="img-thumbnail" />
+  <img [src]="newEvent.imagen" alt="" class="img-thumbnail" />
   <button type="submit" class="btn btn-primary">Create</button>
 </form>

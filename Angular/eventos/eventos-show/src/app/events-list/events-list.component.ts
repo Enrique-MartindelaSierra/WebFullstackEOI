@@ -35,16 +35,18 @@ export class EventsListComponent implements OnInit, OnChanges, DoCheck, OnDestro
 
   evento: IEvent[] = [];
 
-  orderPrice() {
+  orderPrice(event:Event){
+    event.preventDefault();
     this.search = '';
     this.evento.sort(function (precio1, precio2) {
-      return +precio1.price - +precio2.price;
+      return +precio1.precio - +precio2.precio;
     });
   }
 
-  orderDate() {
+  orderDate(event:Event) {
+    event.preventDefault();
     this.search = '';
-    this.evento.sort((fecha1, fecha2)=>fecha1.date.getMilliseconds() - fecha2.date.getMilliseconds());
+    this.evento.sort((fecha1, fecha2)=>new Date (fecha1.fecha).getDate() - new Date (fecha2.fecha).getDate());
   }
 
 

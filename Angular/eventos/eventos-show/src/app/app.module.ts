@@ -10,6 +10,9 @@ import { EventFormComponent } from './event-form/event-form.component';
 import { EventosService } from './servicios/eventos.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BaseUrlInterceptor } from './interceptores/base-url.interceptor';
+import { EventDetailComponent } from './event-detail/event-detail.component';
+import { RouterModule } from '@angular/router';
+import { APP_ROUTES } from './app.routes';
 
 
 @NgModule({
@@ -18,12 +21,15 @@ import { BaseUrlInterceptor } from './interceptores/base-url.interceptor';
     EventsListComponent,
     EventFilterPipe,
     EventItemComponent,
-    EventFormComponent
+    EventFormComponent,
+    EventDetailComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule,
+    RouterModule.forRoot(APP_ROUTES)
   ],
   providers:[
     EventosService,
