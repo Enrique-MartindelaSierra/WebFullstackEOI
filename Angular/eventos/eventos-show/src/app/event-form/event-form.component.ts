@@ -18,7 +18,7 @@ ngOnInit():void{
 }
   inicializarEvento(){
     this.newEvent ={
-      id: 0,
+      id: -1,
       nombre: '',
       imagen: undefined,
       fecha: new Date('0000-00-00'),
@@ -28,6 +28,17 @@ ngOnInit():void{
 
   }
 
+  obtenerEvento(){
+
+
+    const id = +this.newEvent.id;
+    this.servicio.getEvento(id)
+    if(id>0){
+      this.servicio.getEvento(id).subscribe(
+        ev => this.newEvent = ev
+      )
+    }
+  }
 
 
   //@Output() eventoNuevo = new EventEmitter<IEvent>();
